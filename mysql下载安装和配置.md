@@ -40,5 +40,8 @@ grep "temporary password" /var/log/mysqld.log
 6，FLUSH PRIVIEGES;
 7 quit
 ~~~
- 
-
+#### 修改密码（不能使用初始密码做事情）
+~~~
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new password';
+// 这里会遇到新密码设置太简单而会报错的问题
+~~~
