@@ -26,3 +26,40 @@ ReactDOM.render(
 )
 ~~~
 ## React生命周期
+React生命周期为三种状态  
+1，初始化；
+2，更新；
+3，销毁；
+### 初始化：
+getDefaultProps() 
+> 设置默认的props，也可以用dufaultProps设置组件的默认属性
+getInitialState()
+> 使用es6的class语法时是没有这个钩子函数的，可以直接在constructor中定义this.state.此时可以访问this.props
+componentWillMount()
+> 组件初始化时调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state
+render
+> react最重要的步骤，创建虚拟dom，进行diff算法，更新dom树都在此进行，此时就不能在更改state了
+componentDidMount  
+> 组件渲染之后调用，只调用一次
+### 更新：
+##### 阶段一：
+属性（props）改变
+componentWillReceiveProps(nextProps)
+> 组件初始化时不调用，组件接受新的props时调用
+##### 阶段二：
+状态(state)改变
+shouldComponentUpdate(nextProps,nextState)
+> react关于性能的重要一环。对比props和state，节约资源
+componentWillUpdate(nextProps,nextState)
+> 组件初始化不调用，只有在组件将要更新时才调用，此时可以修改state
+render()
+> 组件渲染
+componentDidUpdate()
+> 组件初始化时不调用，组件更新完成后调用，此时可以获取dom节点
+### 卸载：
+componentWillUnmount
+> 组件将要卸载的时候调用，一些事件监听和定时器需要在此时清楚。
+
+
+
+
