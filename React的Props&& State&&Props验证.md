@@ -73,3 +73,30 @@ ReactDOM.render(
 )
 // WebSite设置state，Name和Link用props来调用state，最终在WebSite里显示
 ~~~
+### Props验证
+> <script src="https://cdn.bootcss.com/prop-types/15.6.1/prop-types.js"></script>
+~~~
+import React from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types'
+import './index.css';
+import * as serviceWorker from './serviceWorker';
+var title = "菜鸟";
+class MyTitle extends React.Component{
+    render(){
+        return(
+            <h1>Hello, {this.props.title}</h1>
+        );
+    }
+}
+MyTitle.propTypes = {
+    // title: PropTypes.string
+    title: PropTypes.string.isRequired
+};
+ReactDOM.render(
+    <MyTitle title={title} />,
+    document.getElementById('root')
+)
+console.log(PropTypes)
+serviceWorker.unregister();
+~~~
