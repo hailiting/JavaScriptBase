@@ -59,7 +59,56 @@ componentDidUpdate()
 ### 卸载：
 componentWillUnmount
 > 组件将要卸载的时候调用，一些事件监听和定时器需要在此时清楚。
+~~~
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import * as serviceWorker from './serviceWorker';
 
-
+class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: new Date()
+        };
+    }
+    // 组件输出到DOM后执行componentDidMount()
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        )
+    }
+    // 卸载的时候调用
+    componentWillUnmount(){
+        clearInterval(this.timerID);
+    }
+    tick(){
+        this.setState({
+            date: new Date()
+        });
+    }
+    render(){
+        return (
+            <div>
+                <h1>HELLO WORLD</h1>
+                <h2>现在是{this.state.date.toLocaleTimeString()}.</h2>
+            </div>
+        )
+    }
+}
+ReactDOM.render(
+    <Clock />,
+    document.getElementById('root')
+)
+/**
+ * 1，当<Clock/>被传递给ReactDOM.render()时，React调用Clock组件的构造函数。由于Clock需要显示当前时间，所以使用包含当前时间的对象来初始化this.state.稍后在更新这个状态。
+ * 2，React然后调用Clock组件的render()方法，这时React了解屏幕上应该显示什么内容，然后React更新DOM以匹配Clock的渲染输出。
+ * 3，当Clock的输出插入DOM中时，React调用componentDidMount()生命周期钩子。在其中，Clock组件要求浏览器设置一个定时器，每秒调用一次tick().
+ * 4，浏览器每秒调用tick()方法。在其中，Clock组件通过使用包含当前时间的对象调用setState()来调度UI更新。通过调用setState(), react知道状态的改变，并再次调用render()方法来明确屏幕上应当显示什么。這一次，render()方法中的this.state.date将不同，所以渲染输出将包含更新的时间，并相应的更新DOM。
+ * 一旦Clock组件被从Dom中移除，React会调用ComponentWillUnmount()这个钩子函数，定时器也就会被清除。
+ **/
+serviceWorker.unregister();
+~~~
 
 
