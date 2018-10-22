@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>dome01</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <style>
+        ul{
+        list-style: none;
+        overflow: hidden;
+    }
+    li{
+        height: 20px;
+    }
+    </style>
+    <script type="text/javascript">
+        let n = 5
+        let ul = document.createElement('ul')
+        let li = ''
+        for (let i = n; i <= n && i > 0; i--) {
+            let txt = ''
+            for (let k = i; k > 0; k--) {
+                li = document.createElement('li')
+                txt += i
+                li.innerHTML = txt
+            }
+            ul.appendChild(li)
+        }
+        for (let i = 1; i <= n; ++i) {
+            let txt = ''
+            let li = ''
+            console.log(i)
+            for (let k = i; k >0; k--) {
+                li = document.createElement('li')
+                txt += i
+                li.innerHTML = txt
+            }
+            ul.appendChild(li)
+        }
+        document.body.appendChild(ul)
+    </script>
+</body>
+
+</html>
