@@ -13,3 +13,7 @@ mysql> use mysql;
 mysql> alter user 'root'@'localhost' identified with mysql_native_password by 'root的密码';
 mysql> flush privileges;
 ~~~
+### 3，查看mysql端口号
+~~~
+mysql> show global variables like 'port';
+~~~
