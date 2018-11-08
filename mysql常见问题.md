@@ -1,4 +1,5 @@
 # Windows
+window 可视化根据 轻量级 HeidiSQL
 ## 1，初始密码不知道
 ~~~
 1，关闭服务 net stop MySQL
@@ -16,4 +17,8 @@ mysql> flush privileges;
 ### 3，查看mysql端口号
 ~~~
 mysql> show global variables like 'port';
+~~~
+### 4，启动mysql 
+~~~
+net start mysql
 ~~~
