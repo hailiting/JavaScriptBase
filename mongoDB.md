@@ -1,4 +1,4 @@
-## mongod --config  /usr/local/etc/mongod.config
+## mongod --config /usr/local/etc/mongod.conf
 ## mongo
 --  mongodb://127.0.0.1:27017 mongodb默认端口
 ## node链接 mongodb
