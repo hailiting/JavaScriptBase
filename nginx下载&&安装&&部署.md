@@ -1,3 +1,30 @@
+# mac
+## 1, 先安装 homebrew
+~~~
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+~~~
+## 2，Nginx
+~~~
+brew install nginx
+~~~
+## 3，启动 Nginx
+~~~
+sudo  /usr/local/Cellar/nginx/1.15.8/bin/nginx  -c /usr/local/etc/nginx/nginx.conf
+~~~
+##  常见错误 
+### 配置文件地址
+/usr/local/etc/nginx/nginx.conf
+~~~
+//  nginx: [emerg] bind() to 0.0.0.0:80 failed (13: Permission denied) 
+端口号太小，改 1024 以上端口
+server {
+  listen:  8080
+  ...
+}
+// nginx: [emerg] bind() to 0.0.0.0:80 failed (48: Address already in use)
+sudo nginx -s stop 或 sudo nginx -s stop
+~~~
+
 ## 1,安装工具包wget、vim和gcc
 ~~~
 yum install -y wget
