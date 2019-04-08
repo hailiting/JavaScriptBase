@@ -20,3 +20,7 @@ command || Ctrl + M
 》 Show Pert Monitor
 》 Cancel
 ~~~
+## warnings
+### 1，手动触发  ``console.warn()``
+### 2，``console.disableYellowBox = true`` 手动禁止warnings
+### 3，``console.ignoredYellowBox = ['Warning: ...'];``来忽略相应的Warnin
