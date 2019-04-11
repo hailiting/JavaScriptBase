@@ -10,3 +10,10 @@
   compile ('com.facebook.react:react-native:0.54.3'){force = true}
 ...
 ~~~
+### 发现安卓真机版本与实际版本不一样
+~~~
+adb kill-server
+adb start-server
+adb reverse tcp:8081 tcp:8081
+npm start
+~~~
