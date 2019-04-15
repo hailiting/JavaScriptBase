@@ -23,3 +23,30 @@ const SomeNav = createStackNavigator/createBottomTabNavigator/createMaterialTopN
 ###### 1，``screenProps``向子屏幕传递额外的数据，子屏幕可以通过``this.props.screenProps``获取到该数据;
 ###### 2，``ref``=>获取到``navigation``;
 ###### 3，``onNavigationStateChange(prevState, newState, action)``
+#### 使用setParams改变route params
+~~~
+class ProfileScreen extends React.Component {
+  render(){
+    const {setParams} = this.props.navigation;
+    return (
+      <Button 
+        onPress = {()=>setParams({name: 'lucy'})}
+        title="set title name to Lucy"
+        />
+    )
+  }
+}
+~~~
+navigation.state.key
+~~~
+// 返回上一页
+import {NavigationActions} from 'react-navigation';
+const backAction = NavigationActions.bank();
+this.props.navigation.dispatch(backAction);
+// 修改所有页面的params
+import {NavigationActions} from 'react-navigation';
+const setParamsAction = NavigationActions.settParams({
+  params: {title:'sdsf'},
+  key: 'id-12242342314-3'
+})
+~~~
