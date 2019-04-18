@@ -1,7 +1,8 @@
 ### 目录结构
 
+``tree -L 3 -I "node_modules" -N``
 ~~~
-// tree -L 3 -I "node_modules" -N
+
 ├── JavaScript原生相关
 │   ├── 2018前端面试题.md
 │   ├── ECMAScript.md
