@@ -1,0 +1,1 @@
+## ``createMaterialTopTabNavigator(RouteConfigs, TabNavigatorConfig)``
