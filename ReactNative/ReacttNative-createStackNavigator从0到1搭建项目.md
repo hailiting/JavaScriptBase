@@ -1,4 +1,13 @@
-## createStackNavigator提供转场过度效果，android从屏幕底部淡入，ios从屏幕右侧划入
+### 从0到1搭建项目
+~~~
+react-native init myappname
+yarn add react-navigation
+// react-navigation的依赖
+yarn add react-native-gesture-handler
+// 与原生相连接
+react-native link react-native-gesture-handler
+~~~
+#### createStackNavigator提供转场过度效果，android从屏幕底部淡入，ios从屏幕右侧划入
 ### api
 ``createStackNavigator(RouterConfigs,StackNavigatorConfig)``
 · RouteConfigs: 告诉导航器，该路由呈现什么 
